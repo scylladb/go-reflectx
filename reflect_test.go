@@ -1,3 +1,8 @@
+// Copyright (C) 2019 ScyllaDB
+// Use of this source code is governed by a ALv2-style
+// license that can be found in the LICENSE file.
+// Copyright (C) github.com/jmoiron/sqlx authors, licensed under the MIT license.
+
 package reflectx
 
 import (
@@ -810,8 +815,6 @@ func TestMustBe(t *testing.T) {
 				t.Errorf("unexpected Method: %s", valueErr.Method)
 				t.Error("expected panic with *reflect.ValueError")
 				return
-			}
-			if valueErr.Method != "github.com/jmoiron/sqlx/reflectx.TestMustBe" {
 			}
 			if valueErr.Kind != reflect.String {
 				t.Errorf("unexpected Kind: %s", valueErr.Kind)

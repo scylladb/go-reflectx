@@ -1,3 +1,8 @@
+// Copyright (C) 2019 ScyllaDB
+// Use of this source code is governed by a ALv2-style
+// license that can be found in the LICENSE file.
+// Copyright (C) github.com/jmoiron/sqlx authors, licensed under the MIT license.
+
 // Package reflectx implements extensions to the standard reflect lib suitable
 // for implementing marshalling and unmarshalling packages.  The main Mapper type
 // allows for Go-compatible named attribute access, including accessing embedded
@@ -167,7 +172,7 @@ func (m *Mapper) FieldsByName(v reflect.Value, names []string) []reflect.Value {
 // to a struct.  Returns empty int slice for each name not found.
 func (m *Mapper) TraversalsByName(t reflect.Type, names []string) [][]int {
 	r := make([][]int, 0, len(names))
-	m.TraversalsByNameFunc(t, names, func(_ int, i []int) error {
+	m.TraversalsByNameFunc(t, names, func(_ int, i []int) error { // nolint
 		if i == nil {
 			r = append(r, []int{})
 		} else {
@@ -244,7 +249,7 @@ type kinder interface {
 
 // mustBe checks a value against a kind, panicing with a reflect.ValueError
 // if the kind isn't that which is required.
-func mustBe(v kinder, expected reflect.Kind) {
+func mustBe(v kinder, expected reflect.Kind) { // nolint: unparam
 	if k := v.Kind(); k != expected {
 		panic(&reflect.ValueError{Method: methodName(), Kind: k})
 	}
