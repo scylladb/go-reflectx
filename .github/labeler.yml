@@ -1,0 +1,5 @@
+# One union glob must match every reported filename, including mixed support PRs.
+omit-from-release-notes:
+  - changed-files:
+      - all-globs-to-all-files:
+          - '{*_test.go,.github/workflows/*.yml,.github/workflows/*.yaml,.github/scripts/*.cjs,README.md,.github/RELEASE_NOTES.md,.github/release.yml,.github/labeler.yml,.github/package.json,.github/package-lock.json,.gitignore,.travis.yml,.golangci.yml}'
